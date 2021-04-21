@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:TreeDocumentGenerator"
         mc:Ignorable="d"
         Title="MainWindow" 
-        Height="450" 
-        Width="700" 
+        Height="480" 
+        Width="750" 
         ResizeMode="NoResize" 
         WindowStartupLocation="CenterScreen" 
         WindowStyle="None">
@@ -23,16 +23,21 @@
         </Grid.ColumnDefinitions>
 
         <Grid Background="#ff304351" 
-              Grid.ColumnSpan="2">
+              Grid.ColumnSpan="2"
+              MouseDown="Grid_MouseDown">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition Width="25"/>
                 <ColumnDefinition Width="25"/>
+                <ColumnDefinition Width="4"/>
             </Grid.ColumnDefinitions>
 
-            <Button Grid.Column="3" 
+            <Button Grid.Column="2" 
                     Background="#ff02D06C"
                     Content="X"
+                    Name="Close"
+                    Click="Close_Click"
+                     BorderThickness="0"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     Height="20"
@@ -40,9 +45,12 @@
                     Foreground="White"/>
             
             <Button Grid.Column="1" 
+                    Name="Minimize"
                     Background="#ff02D06C" 
                     Height="20"
+                    Click="Minimize_Click"
                     Width="20"
+                     BorderThickness="0"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     Content="-"
@@ -53,57 +61,157 @@
                     Margin="12">
             <TextBlock Text="Name on the plaque"
                        FontFamily="Fonts/#Dosis"
+                       Foreground="#ff304351"
                        FontWeight="Medium"/>
             <TextBox Margin="0 8" 
                      BorderThickness="0"
                      Background="#fff6f6f8"
-                     Width="180"
+                     Width="200"
+                     FontFamily="Fonts/#Dosis"
+                     FontSize="14"
+                     Padding="4 2"    
                      HorizontalAlignment="Left"/>
             
             
             <TextBlock Text="Tree type"
                        FontFamily="Fonts/#Dosis"
+                       Foreground="#ff304351"
+                       Margin="0 8 0 0"
                        FontWeight="Medium"/>
             <TextBox Margin="0 8" 
                      Background="#fff6f6f8"
                      BorderThickness="0"
-                     Width="180"
+                     Width="200"
+                     FontFamily="Fonts/#Dosis"
+                     FontSize="14"
+                     Padding="4 2"    
                      HorizontalAlignment="Left"/>
 
 
-            <TextBlock Text="Location"
+            <TextBlock Text="Tree id"
                        FontFamily="Fonts/#Dosis"
+                       Foreground="#ff304351"
+                       Margin="0 8 0 0"
                        FontWeight="Medium"/>
             <TextBox Margin="0 8" 
                      Background="#fff6f6f8"
                      BorderThickness="0"
-                     Width="180"
+                     Width="200"
+                     FontFamily="Fonts/#Dosis"
+                     FontSize="14"
+                     Padding="4 2"    
+                     HorizontalAlignment="Left"/>
+            
+            
+            <TextBlock Text="Location"
+                       FontFamily="Fonts/#Dosis"
+                       Foreground="#ff304351"
+                       Margin="0 8 0 0"
+                       FontWeight="Medium"/>
+            <TextBox Margin="0 8" 
+                     Background="#fff6f6f8"
+                     BorderThickness="0"
+                     Width="200"
+                     FontFamily="Fonts/#Dosis"
+                     FontSize="14"
+                     Padding="4 2"    
                      HorizontalAlignment="Left"/>
 
             <TextBlock Text="Date"
                        FontFamily="Fonts/#Dosis"
+                       Foreground="#ff304351"
+                       Margin="0 8 0 0"
                        FontWeight="Medium"/>
             <TextBox Margin="0 8" 
                      Background="#fff6f6f8"
                      BorderThickness="0"
-                     Width="180"
+                     Width="200"
+                     FontFamily="Fonts/#Dosis"
+                     FontSize="14"
+                     Padding="4 2"    
                      HorizontalAlignment="Left"/>
 
 
             <TextBlock Text="Plaque image path"
                        FontFamily="Fonts/#Dosis"
+                       Foreground="#ff304351"
+                       Margin="0 8 0 0"
                        FontWeight="Medium"/>
-            <TextBox Margin="0 8" 
+
+            <StackPanel Orientation="Horizontal">
+
+                <TextBox Margin="0 8" 
                      Background="#fff6f6f8"
                      BorderThickness="0"
-                     Width="180"
+                     Width="200"
+                     FontFamily="Fonts/#Dosis"
+                     FontSize="14"
+                     Padding="4 2"    
                      HorizontalAlignment="Left"/>
+
+                <Button Grid.Column="1"
+                    Margin="8 0 0 0"
+                    FontSize="12"
+                    Content="Brows"
+                    FontWeight="Medium"
+                    Foreground="White">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="TextElement.FontFamily" Value="Fonts/#Dosis"/>
+                            <Setter Property="Background" Value="#ff02D06C"/>
+                            <Setter Property="Cursor" Value="Hand"/>
+                        </Style>
+                    </Button.Style>
+
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border
+                            Height="24"
+                            Width="75" 
+                            Background="{TemplateBinding Background}"
+                            CornerRadius="7">
+                                <ContentPresenter VerticalAlignment="Center"
+                                              HorizontalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template >
+                </Button>
+
+            </StackPanel>
+            
+            
+            <Button Content="Save"
+                    Margin="0 16 0 0"
+                    FontSize="14"
+                    FontWeight="Bold"
+                    Foreground="White">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="TextElement.FontFamily" Value="Fonts/#Dosis"/>
+                        <Setter Property="Background" Value="#ff02D06C"/>
+                        <Setter Property="Cursor" Value="Hand"/>
+                    </Style>
+                </Button.Style>
+                
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border
+                            Height="24"
+                            Width="140" 
+                            Background="{TemplateBinding Background}"
+                            CornerRadius="7">
+                            <ContentPresenter VerticalAlignment="Center"
+                                              HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template >
+            </Button>
         </StackPanel>
 
         <Grid Grid.Row="1" Grid.ColumnSpan="2" >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
-                <ColumnDefinition Width="420"/>
+                <ColumnDefinition Width="450"/>
             </Grid.ColumnDefinitions>
 
             <Image Grid.Column="1" Source="Images/TreeDocument.png"/>
