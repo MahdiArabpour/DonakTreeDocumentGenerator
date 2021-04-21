@@ -144,6 +144,8 @@
                      Background="#fff6f6f8"
                      BorderThickness="0"
                      Width="200"
+                     TextChanged="PlaqueImagePath_TextChanged"
+                     Name="PlaqueImagePath"
                      FontFamily="Fonts/#Dosis"
                      FontSize="14"
                      Padding="4 2"    
@@ -153,6 +155,8 @@
                     Margin="8 0 0 0"
                     FontSize="12"
                     Content="Brows"
+                    Name="PlaqueImageBrows"
+                    Click="PlaqueImageBrows_Click"
                     FontWeight="Medium"
                     Foreground="White">
                     <Button.Style>
