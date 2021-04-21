@@ -17,3 +17,9 @@ D:\Programming Projects\donak_project\TreeDocumentGenerator\TreeDocumentGenerato
 D:\Programming Projects\donak_project\TreeDocumentGenerator\TreeDocumentGenerator\obj\Debug\netcoreapp3.1\TreeDocumentGenerator.dll
 D:\Programming Projects\donak_project\TreeDocumentGenerator\TreeDocumentGenerator\obj\Debug\netcoreapp3.1\TreeDocumentGenerator.pdb
 D:\Programming Projects\donak_project\TreeDocumentGenerator\TreeDocumentGenerator\obj\Debug\netcoreapp3.1\TreeDocumentGenerator.genruntimeconfig.cache
+D:\Programming Projects\donak_project\TreeDocumentGenerator\TreeDocumentGenerator\bin\Debug\netcoreapp3.1\Microsoft.Win32.SystemEvents.dll
+D:\Programming Projects\donak_project\TreeDocumentGenerator\TreeDocumentGenerator\bin\Debug\netcoreapp3.1\System.Drawing.Common.dll
+D:\Programming Projects\donak_project\TreeDocumentGenerator\TreeDocumentGenerator\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
+D:\Programming Projects\donak_project\TreeDocumentGenerator\TreeDocumentGenerator\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
+D:\Programming Projects\donak_project\TreeDocumentGenerator\TreeDocumentGenerator\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
+D:\Programming Projects\donak_project\TreeDocumentGenerator\TreeDocumentGenerator\obj\Debug\netcoreapp3.1\TreeDocumentGenerator.csproj.CopyComplete

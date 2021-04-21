@@ -218,7 +218,9 @@
                 <ColumnDefinition Width="450"/>
             </Grid.ColumnDefinitions>
 
-            <Image Grid.Column="1" Source="Images/TreeDocument.png"/>
+            <Image Grid.Column="1" 
+                   Source="Images/TreeDocument.png"
+                   Name="OutputImage"/>
         </Grid>
     </Grid>
 </Window>

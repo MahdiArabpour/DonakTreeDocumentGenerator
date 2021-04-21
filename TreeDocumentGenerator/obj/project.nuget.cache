@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "c+YVlXbhcNGGX6LKuqW6fUc5pEKu2oevR0EWbBszwPqGZ15rfHHz64vxPy0eASiOQW8Zz0agRnUHWM2rYJABuw==",
+  "dgSpecHash": "jEGHYVVxN2hX4XWSq0ZHxSsKTP62b+yPz2eYPcWzP7ihYpbolwExdoHtqm0NBTUkV3L0KL/nEJIB/MJiegIBkg==",
   "success": true,
   "projectFilePath": "D:\\Programming Projects\\donak_project\\TreeDocumentGenerator\\TreeDocumentGenerator\\TreeDocumentGenerator.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Mahdi\\.nuget\\packages\\microsoft.netcore.platforms\\5.0.0\\microsoft.netcore.platforms.5.0.0.nupkg.sha512",
+    "C:\\Users\\Mahdi\\.nuget\\packages\\microsoft.win32.systemevents\\5.0.0\\microsoft.win32.systemevents.5.0.0.nupkg.sha512",
+    "C:\\Users\\Mahdi\\.nuget\\packages\\system.drawing.common\\5.0.2\\system.drawing.common.5.0.2.nupkg.sha512"
+  ],
   "logs": []
 }
