@@ -10,6 +10,7 @@
         Width="750" 
         ResizeMode="NoResize" 
         WindowStartupLocation="CenterScreen" 
+        Loaded="Window_Loaded"
         WindowStyle="None">
     <Grid>
         <Grid.RowDefinitions>
@@ -59,77 +60,6 @@
 
         <StackPanel Grid.Row="1"
                     Margin="12">
-            <TextBlock Text="Name on the plaque"
-                       FontFamily="Fonts/#Dosis"
-                       Foreground="#ff304351"
-                       FontWeight="Medium"/>
-            <TextBox Margin="0 8" 
-                     BorderThickness="0"
-                     Background="#fff6f6f8"
-                     Width="200"
-                     FontFamily="Fonts/#Dosis"
-                     FontSize="14"
-                     Padding="4 2"    
-                     HorizontalAlignment="Left"/>
-            
-            
-            <TextBlock Text="Tree type"
-                       FontFamily="Fonts/#Dosis"
-                       Foreground="#ff304351"
-                       Margin="0 8 0 0"
-                       FontWeight="Medium"/>
-            <TextBox Margin="0 8" 
-                     Background="#fff6f6f8"
-                     BorderThickness="0"
-                     Width="200"
-                     FontFamily="Fonts/#Dosis"
-                     FontSize="14"
-                     Padding="4 2"    
-                     HorizontalAlignment="Left"/>
-
-
-            <TextBlock Text="Tree id"
-                       FontFamily="Fonts/#Dosis"
-                       Foreground="#ff304351"
-                       Margin="0 8 0 0"
-                       FontWeight="Medium"/>
-            <TextBox Margin="0 8" 
-                     Background="#fff6f6f8"
-                     BorderThickness="0"
-                     Width="200"
-                     FontFamily="Fonts/#Dosis"
-                     FontSize="14"
-                     Padding="4 2"    
-                     HorizontalAlignment="Left"/>
-            
-            
-            <TextBlock Text="Location"
-                       FontFamily="Fonts/#Dosis"
-                       Foreground="#ff304351"
-                       Margin="0 8 0 0"
-                       FontWeight="Medium"/>
-            <TextBox Margin="0 8" 
-                     Background="#fff6f6f8"
-                     BorderThickness="0"
-                     Width="200"
-                     FontFamily="Fonts/#Dosis"
-                     FontSize="14"
-                     Padding="4 2"    
-                     HorizontalAlignment="Left"/>
-
-            <TextBlock Text="Date"
-                       FontFamily="Fonts/#Dosis"
-                       Foreground="#ff304351"
-                       Margin="0 8 0 0"
-                       FontWeight="Medium"/>
-            <TextBox Margin="0 8" 
-                     Background="#fff6f6f8"
-                     BorderThickness="0"
-                     Width="200"
-                     FontFamily="Fonts/#Dosis"
-                     FontSize="14"
-                     Padding="4 2"    
-                     HorizontalAlignment="Left"/>
 
 
             <TextBlock Text="Plaque image path"
@@ -137,7 +67,7 @@
                        Foreground="#ff304351"
                        Margin="0 8 0 0"
                        FontWeight="Medium"/>
-
+            
             <StackPanel Orientation="Horizontal">
 
                 <TextBox Margin="0 8" 
@@ -183,11 +113,98 @@
 
             </StackPanel>
             
+            <TextBlock Text="Name on the plaque"
+                       FontFamily="Fonts/#Dosis"
+                       Foreground="#ff304351"
+                       Margin="0 8 0 0"
+                       FontWeight="Medium"/>
+            <TextBox Margin="0 8" 
+                     BorderThickness="0"
+                     Background="#fff6f6f8"
+                     Width="200"
+                     TextChanged="NameOnThePlaque_TextChanged"
+                     Name="NameOnThePlaque"
+                     FontFamily="Fonts/#Dosis"
+                     FontSize="14"
+                     Padding="4 2"    
+                     HorizontalAlignment="Left"/>
+            
+            
+            <TextBlock Text="Tree type"
+                       FontFamily="Fonts/#Dosis"
+                       Foreground="#ff304351"
+                       Margin="0 8 0 0"
+                       FontWeight="Medium"/>
+            <TextBox Margin="0 8" 
+                     Background="#fff6f6f8"
+                     BorderThickness="0"
+                     Width="200"
+                     Name="TreeType"
+                     TextChanged="TreeType_TextChanged"
+                     FontFamily="Fonts/#Dosis"
+                     FontSize="14"
+                     Padding="4 2"    
+                     HorizontalAlignment="Left"/>
+
+            
+            
+            <TextBlock Text="Location"
+                       FontFamily="Fonts/#Dosis"
+                       Foreground="#ff304351"
+                       Margin="0 8 0 0"
+                       FontWeight="Medium"/>
+            <TextBox Margin="0 8" 
+                     Background="#fff6f6f8"
+                     BorderThickness="0"
+                     Width="200"
+                     Name="Location"
+                     TextChanged="Location_TextChanged"
+                     FontFamily="Fonts/#Dosis"
+                     FontSize="14"
+                     Padding="4 2"    
+                     HorizontalAlignment="Left"/>
+
+            <TextBlock Text="Date"
+                       FontFamily="Fonts/#Dosis"
+                       Foreground="#ff304351"
+                       Margin="0 8 0 0"
+                       FontWeight="Medium"/>
+            <TextBox Margin="0 8" 
+                     Background="#fff6f6f8"
+                     BorderThickness="0"
+                     Name="Date"
+                     TextChanged="Date_TextChanged"
+                     Width="200"
+                     FontFamily="Fonts/#Dosis"
+                     FontSize="14"
+                     Padding="4 2"    
+                     HorizontalAlignment="Left"/>
+
+
+
+            <TextBlock Text="Tree id"
+                       FontFamily="Fonts/#Dosis"
+                       Foreground="#ff304351"
+                       Margin="0 8 0 0"
+                       FontWeight="Medium"/>
+            <TextBox Margin="0 8" 
+                     Background="#fff6f6f8"
+                     BorderThickness="0"
+                     Width="200"
+                     Name="TreeId"
+                     TextChanged="TreeId_TextChanged"
+                     FontFamily="Fonts/#Dosis"
+                     FontSize="14"
+                     Padding="4 2"    
+                     HorizontalAlignment="Left"/>
+
             
             <Button Content="Save"
                     Margin="0 16 0 0"
                     FontSize="14"
                     FontWeight="Bold"
+                    Name="SaveButton"
+                    Click="SaveButton_Click"
                     Foreground="White">
                 <Button.Style>
                     <Style TargetType="Button">

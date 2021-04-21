@@ -14,11 +14,23 @@ namespace TreeDocumentGenerator
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        private Bitmap _templateImage;
+        private Bitmap _plaqueImage;
+        private Bitmap _documentImage;
+
         public MainWindow()
         {
             InitializeComponent();
         }
-
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            _templateImage = GetTemplateImage();
+        }
+        private Bitmap GetTemplateImage()
+        {
+            return resizeImage(Image.FromFile("Images/TreeDocument.png") as Bitmap, new System.Drawing.Size(1080, 1080));
+        }
         private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)
@@ -26,17 +38,14 @@ namespace TreeDocumentGenerator
                 DragMove();
             }
         }
-
         private void Close_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
         }
-
         private void Minimize_Click(object sender, RoutedEventArgs e)
         {
             this.WindowState = WindowState.Minimized;
         }
-
         private void PlaqueImageBrows_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
@@ -46,33 +55,83 @@ namespace TreeDocumentGenerator
                 PlaqueImagePath.Text = openFileDialog.FileName;
             }
         }
+        /// <summary>
+        /// takes all of the current strings and plaque image and puts them into template image
+        /// </summary>
+        private void MakeImage()
+        {
+            Bitmap documentImage;
 
+            if (_plaqueImage != null)
+            {
+                documentImage = AddPlaqueImage(PlaqueImagePath.Text);
+            } else
+            {
+                documentImage = GetTemplateImage();
+            }
+
+            var nameOnThePlaque = NameOnThePlaque.Text.Trim();
+
+            if (!nameOnThePlaque.Equals(""))
+            {
+                DrawNameonThePlaque(nameOnThePlaque, documentImage);
+            }
+
+            var treeType = TreeType.Text.Trim();
+
+            if (!treeType.Equals(""))
+            {
+                DrawTreeType(treeType, documentImage);
+            }
+
+            var treeId = TreeId.Text.Trim();
+
+            if (!treeId.Equals(""))
+            {
+                DrawTreeId(treeId, documentImage);
+            }
+
+            var location = Location.Text.Trim();
+
+            if (!location.Equals(""))
+            {
+                DrawLocationString(location, documentImage);
+            }
+
+            var date = Date.Text.Trim();
+
+            if (!date.Equals(""))
+            {
+                DrawDateString(date, documentImage);
+            }
+
+            OutputImage.Source = BitmapToImageSource(documentImage);
+
+            _documentImage = documentImage;
+        }
         private void PlaqueImagePath_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
         {
             var plaqueImagePath = PlaqueImagePath.Text.Trim();
             if (File.Exists(plaqueImagePath))
             {
-                AddPlaqueImage(plaqueImagePath);
+                _plaqueImage = CropPlaqueImage(plaqueImagePath);
+            } else
+            {
+                _plaqueImage = null;
             }
+            MakeImage();
         }
-
-        private void AddPlaqueImage(string plaqueImagePath)
+        private Bitmap AddPlaqueImage(string plaqueImagePath)
         {
-            var cropedPlaqueImage = CropPlaqueImage(plaqueImagePath);
-
-            Bitmap templateImage = resizeImage(Image.FromFile("Images/TreeDocument.png") as Bitmap, new System.Drawing.Size(1080, 1080));
-
-
             Bitmap img = new
-                Bitmap(templateImage.Width, templateImage.Height);
+                Bitmap(_templateImage.Width, _templateImage.Height);
             using (Graphics gr = Graphics.FromImage(img))
             {
-                gr.DrawImage(cropedPlaqueImage, new System.Drawing.Point((templateImage.Width / 2), 0));
-                gr.DrawImage(templateImage, new System.Drawing.Point(0, 0));
+                gr.DrawImage(_plaqueImage, new System.Drawing.Point((_templateImage.Width / 2), 0));
+                gr.DrawImage(_templateImage, new System.Drawing.Point(0, 0));
             }
-            OutputImage.Source = BitmapToImageSource(img);
+            return img;
         }
-
         BitmapImage BitmapToImageSource(Bitmap bitmap)
         {
             using (MemoryStream memory = new MemoryStream())
@@ -88,12 +147,10 @@ namespace TreeDocumentGenerator
                 return bitmapimage;
             }
         }
-
         private Bitmap resizeImage(Bitmap imgToResize, System.Drawing.Size size)
         {
             return (new Bitmap(imgToResize, size));
         }
-
         private Bitmap CropPlaqueImage(string plaqueImagePath)
         {
             Bitmap src = Image.FromFile(plaqueImagePath) as Bitmap;
@@ -110,10 +167,80 @@ namespace TreeDocumentGenerator
             }
             return resizeImage(target, new System.Drawing.Size(540, 1080));
         }
-
-        private void UpdateImage()
+        private Bitmap DrawTextOnImage(string nameOnThePlaque, Bitmap templateImage, float textDistanceFromTop, float fontSize, Brush brush, float textDistanceFromLeft = 15, System.Drawing.FontStyle fontStyle = System.Drawing.FontStyle.Bold)
         {
-            OutputImage.Source = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + @"\output.png", UriKind.Absolute));
+            using (Graphics g = Graphics.FromImage(templateImage))
+            {
+                g.DrawString(
+                    nameOnThePlaque,
+                    new Font(
+                        "Lalezar",
+                        fontSize,
+                        fontStyle),
+                    brush, 
+                    new RectangleF(
+                        new PointF(textDistanceFromLeft, textDistanceFromTop),
+                        new SizeF(445, 85)
+                        ),
+                    new StringFormat(StringFormatFlags.DirectionRightToLeft)
+                    );
+            }
+            return templateImage;
+        }
+        private Bitmap DrawNameonThePlaque(string nameOnThePlaque, Bitmap templateImage)
+        {
+            return DrawTextOnImage(nameOnThePlaque, templateImage, 200, 50, Brushes.Purple);
+        }
+        private Bitmap DrawTreeType(string treeType, Bitmap templateImage)
+        {
+            return DrawTextOnImage(treeType, templateImage, 670, 30, Brushes.Black);
+        }
+        private Bitmap DrawLocationString(string locationString, Bitmap templateImage)
+        {
+            return DrawTextOnImage(locationString, templateImage, 785, 30, Brushes.Black);
+        }
+        private Bitmap DrawDateString(string dateString, Bitmap templateImage)
+        {
+            return DrawTextOnImage(dateString, templateImage, 905, 30, Brushes.Black);
+        }
+        private Bitmap DrawTreeId(string treeType, Bitmap templateImage)
+        {
+            return DrawTextOnImage(treeType, templateImage, 987, 24, Brushes.Black, 410);
+        }
+        private void NameOnThePlaque_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        {
+            MakeImage();
+        }
+
+        private void TreeType_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        {
+            MakeImage();
+        }
+
+        private void TreeId_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        {
+            MakeImage();
+        }
+
+        private void Location_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        {
+            MakeImage();
+        }
+
+        private void Date_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        {
+            MakeImage();
+        }
+
+        private void SaveButton_Click(object sender, RoutedEventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Image Files(*.jpg; *.jpeg; *.png)|*.jpg; *.jpeg; *.png";
+            saveFileDialog.FileName = "donak_tree_document.png";
+            if (saveFileDialog.ShowDialog() == true)
+            {
+                _documentImage.Save(saveFileDialog.FileName);
+            }
         }
     }
 }
