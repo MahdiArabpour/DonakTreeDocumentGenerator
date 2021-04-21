@@ -167,12 +167,12 @@ namespace TreeDocumentGenerator
             }
             return resizeImage(target, new System.Drawing.Size(540, 1080));
         }
-        private Bitmap DrawTextOnImage(string nameOnThePlaque, Bitmap templateImage, float textDistanceFromTop, float fontSize, Brush brush, float textDistanceFromLeft = 15, System.Drawing.FontStyle fontStyle = System.Drawing.FontStyle.Bold)
+        private Bitmap DrawTextOnImage(string text, Bitmap templateImage, float textDistanceFromTop, float fontSize, Brush brush, float textDistanceFromLeft = 15, System.Drawing.FontStyle fontStyle = System.Drawing.FontStyle.Bold)
         {
             using (Graphics g = Graphics.FromImage(templateImage))
             {
                 g.DrawString(
-                    nameOnThePlaque,
+                    text,
                     new Font(
                         "Lalezar",
                         fontSize,
@@ -241,6 +241,16 @@ namespace TreeDocumentGenerator
             {
                 _documentImage.Save(saveFileDialog.FileName);
             }
+        }
+
+        private void ResetButton_Click(object sender, RoutedEventArgs e)
+        {
+            PlaqueImagePath.Text = "";
+            TreeType.Text = "";
+            TreeId.Text = "";
+            Location.Text = "";
+            NameOnThePlaque.Text = "";
+            Date.Text = "";
         }
     }
 }

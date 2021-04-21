@@ -198,35 +198,67 @@
                      Padding="4 2"    
                      HorizontalAlignment="Left"/>
 
-            
-            <Button Content="Save"
+            <StackPanel Orientation="Horizontal">
+
+                <Button Content="Reset"
                     Margin="0 16 0 0"
+                    FontSize="14"
+                    FontWeight="Bold"
+                    Name="ResetButton"
+                    Click="ResetButton_Click"
+                    Foreground="#ff304351">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="TextElement.FontFamily" Value="Fonts/#Dosis"/>
+                            <Setter Property="Background" Value="#fff6f6f8"/>
+                            <Setter Property="Cursor" Value="Hand"/>
+                        </Style>
+                    </Button.Style>
+
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border
+                            Height="24"
+                            Width="130" 
+                            Background="{TemplateBinding Background}"
+                            CornerRadius="7">
+                                <ContentPresenter VerticalAlignment="Center"
+                                              HorizontalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template >
+                </Button>
+
+                <Button Content="Save"
+                    Margin="8 16 0 0"
                     FontSize="14"
                     FontWeight="Bold"
                     Name="SaveButton"
                     Click="SaveButton_Click"
                     Foreground="White">
-                <Button.Style>
-                    <Style TargetType="Button">
-                        <Setter Property="TextElement.FontFamily" Value="Fonts/#Dosis"/>
-                        <Setter Property="Background" Value="#ff02D06C"/>
-                        <Setter Property="Cursor" Value="Hand"/>
-                    </Style>
-                </Button.Style>
-                
-                <Button.Template>
-                    <ControlTemplate TargetType="Button">
-                        <Border
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="TextElement.FontFamily" Value="Fonts/#Dosis"/>
+                            <Setter Property="Background" Value="#ff02D06C"/>
+                            <Setter Property="Cursor" Value="Hand"/>
+                        </Style>
+                    </Button.Style>
+
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border
                             Height="24"
-                            Width="140" 
+                            Width="130" 
                             Background="{TemplateBinding Background}"
                             CornerRadius="7">
-                            <ContentPresenter VerticalAlignment="Center"
+                                <ContentPresenter VerticalAlignment="Center"
                                               HorizontalAlignment="Center"/>
-                        </Border>
-                    </ControlTemplate>
-                </Button.Template >
-            </Button>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template >
+                </Button>
+            </StackPanel>
+            
         </StackPanel>
 
         <Grid Grid.Row="1" Grid.ColumnSpan="2" >
