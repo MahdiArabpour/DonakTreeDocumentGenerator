@@ -163,7 +163,9 @@ namespace TreeDocumentGenerator
         {
             Bitmap src = Image.FromFile(plaqueImagePath) as Bitmap;
 
-            Rectangle cropRect = new Rectangle((src.Height / 8), 0, (src.Height / 2), src.Height);
+            var CropPosition = (src.Width - (src.Height / 2)) / 2;
+
+            Rectangle cropRect = new Rectangle(CropPosition, 0, (src.Height / 2), src.Height);
 
             Bitmap target = new Bitmap(cropRect.Width, cropRect.Height);
 
