@@ -64,7 +64,7 @@ namespace TreeDocumentGenerator
 
             if (_plaqueImage != null)
             {
-                documentImage = AddPlaqueImage(PlaqueImagePath.Text);
+                documentImage = AddPlaqueImage();
             } else
             {
                 documentImage = GetTemplateImage();
@@ -75,6 +75,13 @@ namespace TreeDocumentGenerator
             if (!nameOnThePlaque.Equals(""))
             {
                 DrawNameonThePlaque(nameOnThePlaque, documentImage);
+            }
+
+            var customerName = CustomerName.Text.Trim();
+
+            if (!customerName.Equals(""))
+            {
+                DrawCustomerName(customerName, documentImage);
             }
 
             var treeType = TreeType.Text.Trim();
@@ -121,7 +128,7 @@ namespace TreeDocumentGenerator
             }
             MakeImage();
         }
-        private Bitmap AddPlaqueImage(string plaqueImagePath)
+        private Bitmap AddPlaqueImage()
         {
             Bitmap img = new
                 Bitmap(_templateImage.Width, _templateImage.Height);
@@ -132,6 +139,7 @@ namespace TreeDocumentGenerator
             }
             return img;
         }
+
         BitmapImage BitmapToImageSource(Bitmap bitmap)
         {
             using (MemoryStream memory = new MemoryStream())
@@ -174,7 +182,7 @@ namespace TreeDocumentGenerator
                 g.DrawString(
                     text,
                     new Font(
-                        "Lalezar",
+                        "Fonts/Lalezar.ttf",
                         fontSize,
                         fontStyle),
                     brush, 
@@ -191,6 +199,12 @@ namespace TreeDocumentGenerator
         {
             return DrawTextOnImage(nameOnThePlaque, templateImage, 200, 50, Brushes.Purple);
         }
+
+        private Bitmap DrawCustomerName(string treeType, Bitmap templateImage)
+        {
+            return DrawTextOnImage(treeType, templateImage, 560, 30, Brushes.Black);
+        }
+
         private Bitmap DrawTreeType(string treeType, Bitmap templateImage)
         {
             return DrawTextOnImage(treeType, templateImage, 670, 30, Brushes.Black);
@@ -207,27 +221,9 @@ namespace TreeDocumentGenerator
         {
             return DrawTextOnImage(treeType, templateImage, 987, 24, Brushes.Black, 410);
         }
-        private void NameOnThePlaque_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
-        {
-            MakeImage();
-        }
 
-        private void TreeType_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
-        {
-            MakeImage();
-        }
 
-        private void TreeId_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
-        {
-            MakeImage();
-        }
-
-        private void Location_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
-        {
-            MakeImage();
-        }
-
-        private void Date_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        private void AnyTextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
         {
             MakeImage();
         }

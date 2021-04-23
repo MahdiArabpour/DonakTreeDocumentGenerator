@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:TreeDocumentGenerator"
         mc:Ignorable="d"
         Title="MainWindow" 
-        Height="480" 
-        Width="750" 
+        Height="530" 
+        Width="800" 
         ResizeMode="NoResize" 
         WindowStartupLocation="CenterScreen" 
         Loaded="Window_Loaded"
@@ -122,14 +122,30 @@
                      BorderThickness="0"
                      Background="#fff6f6f8"
                      Width="200"
-                     TextChanged="NameOnThePlaque_TextChanged"
+                     TextChanged="AnyTextChanged"
                      Name="NameOnThePlaque"
                      FontFamily="Fonts/#Dosis"
                      FontSize="14"
                      Padding="4 2"    
                      HorizontalAlignment="Left"/>
-            
-            
+
+
+            <TextBlock Text="CustomerName"
+                       FontFamily="Fonts/#Dosis"
+                       Foreground="#ff304351"
+                       Margin="0 8 0 0"
+                       FontWeight="Medium"/>
+            <TextBox Margin="0 8" 
+                     BorderThickness="0"
+                     Background="#fff6f6f8"
+                     Width="200"
+                     Name="CustomerName"
+                     TextChanged="AnyTextChanged"
+                     FontFamily="Fonts/#Dosis"
+                     FontSize="14"
+                     Padding="4 2"    
+                     HorizontalAlignment="Left"/>
+
             <TextBlock Text="Tree type"
                        FontFamily="Fonts/#Dosis"
                        Foreground="#ff304351"
@@ -140,7 +156,7 @@
                      BorderThickness="0"
                      Width="200"
                      Name="TreeType"
-                     TextChanged="TreeType_TextChanged"
+                     TextChanged="AnyTextChanged"
                      FontFamily="Fonts/#Dosis"
                      FontSize="14"
                      Padding="4 2"    
@@ -158,7 +174,7 @@
                      BorderThickness="0"
                      Width="200"
                      Name="Location"
-                     TextChanged="Location_TextChanged"
+                     TextChanged="AnyTextChanged"
                      FontFamily="Fonts/#Dosis"
                      FontSize="14"
                      Padding="4 2"    
@@ -173,7 +189,7 @@
                      Background="#fff6f6f8"
                      BorderThickness="0"
                      Name="Date"
-                     TextChanged="Date_TextChanged"
+                     TextChanged="AnyTextChanged"
                      Width="200"
                      FontFamily="Fonts/#Dosis"
                      FontSize="14"
@@ -192,7 +208,7 @@
                      BorderThickness="0"
                      Width="200"
                      Name="TreeId"
-                     TextChanged="TreeId_TextChanged"
+                     TextChanged="AnyTextChanged"
                      FontFamily="Fonts/#Dosis"
                      FontSize="14"
                      Padding="4 2"    
@@ -264,7 +280,7 @@
         <Grid Grid.Row="1" Grid.ColumnSpan="2" >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
-                <ColumnDefinition Width="450"/>
+                <ColumnDefinition Width="500"/>
             </Grid.ColumnDefinitions>
 
             <Image Grid.Column="1" 
