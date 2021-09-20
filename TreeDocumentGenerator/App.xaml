@@ -6,10 +6,6 @@
     <Application.Resources>
         <FontFamily x:Key="AnjomanBlack">Fonts\Anjoman-Black.ttf#Anjoman</FontFamily>
         <FontFamily x:Key="AnjomanBold">Fonts\Anjoman-Bold.ttf#Anjoman</FontFamily>
-        <FontFamily x:Key="AnjomanExtraBold">Fonts\Anjoman-ExtraBold.ttf#Anjoman</FontFamily>
-        <FontFamily x:Key="AnjomanLight">Fonts\Anjoman-Light.ttf#Anjoman</FontFamily>
-        <FontFamily x:Key="AnjomanMedium">Fonts\Anjoman-Medium.ttf#Anjoman</FontFamily>
-        <FontFamily x:Key="AnjomanSemiBold">Fonts\Anjoman-Regular.ttf#Anjoman</FontFamily>
         <FontFamily x:Key="AnjomanRegular">Fonts\Anjoman-SemiBold.ttf#Anjoman</FontFamily>
     </Application.Resources>
 </Application>

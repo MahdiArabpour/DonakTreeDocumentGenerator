@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\Programming Projects\VisualStudioProjects\DonakTreeDocumentGenerator-main\TreeDocumentGenerator\obj\Release\netcoreapp3.1\
+D:\Programming Projects\VisualStudioProjects\DonakTreeDocumentGenerator\DonakTreeDocumentGenerator\TreeDocumentGenerator\obj\Release\netcoreapp3.1\
 TreeDocumentGenerator
 none
 false
 TRACE;RELEASE;NETCOREAPP;NETCOREAPP3_1;
-D:\Programming Projects\VisualStudioProjects\DonakTreeDocumentGenerator-main\TreeDocumentGenerator\App.xaml
+D:\Programming Projects\VisualStudioProjects\DonakTreeDocumentGenerator\DonakTreeDocumentGenerator\TreeDocumentGenerator\App.xaml
 11151548125
-8-1280040521
+4-765663793
 51678686143
 1931631578750
 MainWindow.xaml;
 
-False
+True
 

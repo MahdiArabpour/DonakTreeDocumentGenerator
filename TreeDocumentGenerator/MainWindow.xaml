@@ -64,7 +64,7 @@
 
             <TextBlock Text="Plaque image path"
                        Name="PlaqueImagePathTextBloc"
-                       FontFamily="{StaticResource AnjomanExtraBold}"
+                       FontFamily="{StaticResource AnjomanBold}"
                        Foreground="#ff304351"
                        Margin="0 8 0 0"
                        FontWeight="Medium"/>
@@ -114,7 +114,7 @@
             </StackPanel>
 
             <TextBlock Text="Name on the plaque"
-                       FontFamily="{StaticResource AnjomanExtraBold}"
+                       FontFamily="{StaticResource AnjomanBold}"
                        Foreground="#ff304351"
                        Margin="0 8 0 0"
                        FontWeight="Medium"/>
@@ -130,7 +130,7 @@
 
 
             <TextBlock Text="CustomerName"
-                       FontFamily="{StaticResource AnjomanExtraBold}"
+                       FontFamily="{StaticResource AnjomanBold}"
                        Foreground="#ff304351"
                        Margin="0 8 0 0"
                        FontWeight="Medium"/>
@@ -145,7 +145,7 @@
                      HorizontalAlignment="Left"/>
 
             <TextBlock Text="Tree type"
-                       FontFamily="{StaticResource AnjomanExtraBold}"
+                       FontFamily="{StaticResource AnjomanBold}"
                        Foreground="#ff304351"
                        Margin="0 8 0 0"
                        FontWeight="Medium"/>
@@ -163,7 +163,7 @@
 
 
             <TextBlock Text="Location"
-                       FontFamily="{StaticResource AnjomanExtraBold}"
+                       FontFamily="{StaticResource AnjomanBold}"
                        Foreground="#ff304351"
                        Margin="0 8 0 0"
                        FontWeight="Medium"/>
@@ -179,7 +179,7 @@
                      HorizontalAlignment="Left"/>
 
             <TextBlock Text="Date"
-                       FontFamily="{StaticResource AnjomanExtraBold}"
+                       FontFamily="{StaticResource AnjomanBold}"
                        Foreground="#ff304351"
                        Margin="0 8 0 0"
                        FontWeight="Medium"/>
@@ -197,7 +197,7 @@
 
 
             <TextBlock Text="Tree id"
-                       FontFamily="{StaticResource AnjomanExtraBold}"
+                       FontFamily="{StaticResource AnjomanBold}"
                        Foreground="#ff304351"
                        Margin="0 8 0 0"
                        FontWeight="Medium"/>

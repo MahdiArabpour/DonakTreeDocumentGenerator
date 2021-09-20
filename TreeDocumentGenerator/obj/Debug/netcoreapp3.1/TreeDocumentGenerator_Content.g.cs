@@ -12,9 +12,5 @@
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("fonts/anjoman-black.ttf")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("fonts/anjoman-bold.ttf")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("fonts/anjoman-semibold.ttf")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("fonts/anjoman-extrabold.ttf")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("fonts/anjoman-light.ttf")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("fonts/anjoman-regular.ttf")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("fonts/anjoman-medium.ttf")]
 
 

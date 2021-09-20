@@ -178,18 +178,14 @@ namespace TreeDocumentGenerator
             return resizeImage(target, new System.Drawing.Size(540 - (_templateImage.Width / 27), 1080 - (_templateImage.Height / 11)));
         }
 
-        private Bitmap DrawTextOnImage(string text, Bitmap templateImage, float textDistanceFromTop, float fontSize, Brush brush, float textDistanceFromLeft = 12, AnjomanFontStyle fontStyle = AnjomanFontStyle.Bold, float boxHeight = 85)
+        private Bitmap DrawTextOnImage(string text, Bitmap templateImage, float textDistanceFromTop, float fontSize, Brush brush, float textDistanceFromLeft = 12, AnjomanFontStyle fontStyle = AnjomanFontStyle.Bold, float boxHeight = 85, float boxWidth = 448)
         {
             using (Graphics g = Graphics.FromImage(templateImage))
             {
                 var myFonts = new System.Drawing.Text.PrivateFontCollection();
                 myFonts.AddFontFile("Fonts\\Anjoman-Black.ttf");
-                myFonts.AddFontFile("Fonts\\Anjoman-ExtraBold.ttf");
                 myFonts.AddFontFile("Fonts\\Anjoman-Bold.ttf");
                 myFonts.AddFontFile("Fonts\\Anjoman-SemiBold.ttf");
-                myFonts.AddFontFile("Fonts\\Anjoman-Medium.ttf");
-                myFonts.AddFontFile("Fonts\\Anjoman-Regular.ttf");
-                myFonts.AddFontFile("Fonts\\Anjoman-Light.ttf");
 
                 int fontIndex = 1;
 
@@ -198,23 +194,11 @@ namespace TreeDocumentGenerator
                     case AnjomanFontStyle.Black:
                         fontIndex = 0;
                         break;
-                    case AnjomanFontStyle.ExtraBold:
-                        fontIndex = 2;
-                        break;
                     case AnjomanFontStyle.Bold:
                         fontIndex = 1;
                         break;
                     case AnjomanFontStyle.SemiBold:
-                        fontIndex = 6;
-                        break;
-                    case AnjomanFontStyle.Regular:
-                        fontIndex = 5;
-                        break;
-                    case AnjomanFontStyle.Medium:
-                        fontIndex = 4;
-                        break;
-                    case AnjomanFontStyle.Light:
-                        fontIndex = 3;
+                        fontIndex = 2;
                         break;
                     default:
                         break;
@@ -232,7 +216,7 @@ namespace TreeDocumentGenerator
                     brush, 
                     new RectangleF(
                         new PointF(textDistanceFromLeft, textDistanceFromTop),
-                        new SizeF(448, boxHeight)
+                        new SizeF(boxWidth, boxHeight)
                         ),
                     new StringFormat(StringFormatFlags.DirectionRightToLeft)
                     );
@@ -241,25 +225,25 @@ namespace TreeDocumentGenerator
         }
         private Bitmap DrawNameonThePlaque(string nameOnThePlaque, Bitmap templateImage)
         {
-            return DrawTextOnImage(nameOnThePlaque, templateImage, 185, 40, new SolidBrush(Color.FromArgb(69,0,168)), 15, AnjomanFontStyle.Black, 160);
+            return DrawTextOnImage(nameOnThePlaque, templateImage, 185, (float)37.5, new SolidBrush(Color.FromArgb(69,0,168)), 12, AnjomanFontStyle.Black, 160, 453);
         }
 
         private Bitmap DrawCustomerName(string treeType, Bitmap templateImage)
         {
-            return DrawTextOnImage(treeType, templateImage, 560, 23, Brushes.Black);
+            return DrawTextOnImage(treeType, templateImage, 560, 22, Brushes.Black);
         }
 
         private Bitmap DrawTreeType(string treeType, Bitmap templateImage)
         {
-            return DrawTextOnImage(treeType, templateImage, 670, 23, Brushes.Black);
+            return DrawTextOnImage(treeType, templateImage, 670, 22, Brushes.Black);
         }
         private Bitmap DrawLocationString(string locationString, Bitmap templateImage)
         {
-            return DrawTextOnImage(locationString, templateImage, 785, 23, Brushes.Black);
+            return DrawTextOnImage(locationString, templateImage, 785, 22, Brushes.Black);
         }
         private Bitmap DrawDateString(string dateString, Bitmap templateImage)
         {
-            return DrawTextOnImage(dateString, templateImage, 905, 23, Brushes.Black);
+            return DrawTextOnImage(dateString, templateImage, 905, 22, Brushes.Black);
         }
         private Bitmap DrawTreeId(string treeType, Bitmap templateImage)
         {
@@ -297,11 +281,7 @@ namespace TreeDocumentGenerator
     enum AnjomanFontStyle
     {
         Black,
-        ExtraBold,
         Bold,
         SemiBold,
-        Medium,
-        Regular,
-        Light,
     }
 }
