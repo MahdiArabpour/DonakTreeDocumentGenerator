@@ -1,0 +1,2 @@
+D:\Programming Projects\VisualStudioProjects\DonakTreeDocumentGenerator-main\TreeDocumentGenerator\bin\Release\netcoreapp3.1\win-x64\publish\TreeDocumentGenerator.pdb
+D:\Programming Projects\VisualStudioProjects\DonakTreeDocumentGenerator-main\TreeDocumentGenerator\bin\Release\netcoreapp3.1\win-x64\publish\TreeDocumentGenerator.exe

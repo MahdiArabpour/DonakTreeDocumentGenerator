@@ -63,7 +63,8 @@
 
 
             <TextBlock Text="Plaque image path"
-                       FontFamily="Fonts/#Dosis"
+                       Name="PlaqueImagePathTextBloc"
+                       FontFamily="{StaticResource AnjomanExtraBold}"
                        Foreground="#ff304351"
                        Margin="0 8 0 0"
                        FontWeight="Medium"/>
@@ -76,7 +77,6 @@
                      Width="200"
                      TextChanged="PlaqueImagePath_TextChanged"
                      Name="PlaqueImagePath"
-                     FontFamily="Fonts/#Dosis"
                      FontSize="14"
                      Padding="4 2"    
                      HorizontalAlignment="Left"/>
@@ -112,9 +112,9 @@
                 </Button>
 
             </StackPanel>
-            
+
             <TextBlock Text="Name on the plaque"
-                       FontFamily="Fonts/#Dosis"
+                       FontFamily="{StaticResource AnjomanExtraBold}"
                        Foreground="#ff304351"
                        Margin="0 8 0 0"
                        FontWeight="Medium"/>
@@ -124,14 +124,13 @@
                      Width="200"
                      TextChanged="AnyTextChanged"
                      Name="NameOnThePlaque"
-                     FontFamily="Fonts/#Dosis"
                      FontSize="14"
                      Padding="4 2"    
                      HorizontalAlignment="Left"/>
 
 
             <TextBlock Text="CustomerName"
-                       FontFamily="Fonts/#Dosis"
+                       FontFamily="{StaticResource AnjomanExtraBold}"
                        Foreground="#ff304351"
                        Margin="0 8 0 0"
                        FontWeight="Medium"/>
@@ -141,13 +140,12 @@
                      Width="200"
                      Name="CustomerName"
                      TextChanged="AnyTextChanged"
-                     FontFamily="Fonts/#Dosis"
                      FontSize="14"
                      Padding="4 2"    
                      HorizontalAlignment="Left"/>
 
             <TextBlock Text="Tree type"
-                       FontFamily="Fonts/#Dosis"
+                       FontFamily="{StaticResource AnjomanExtraBold}"
                        Foreground="#ff304351"
                        Margin="0 8 0 0"
                        FontWeight="Medium"/>
@@ -162,10 +160,10 @@
                      Padding="4 2"    
                      HorizontalAlignment="Left"/>
 
-            
-            
+
+
             <TextBlock Text="Location"
-                       FontFamily="Fonts/#Dosis"
+                       FontFamily="{StaticResource AnjomanExtraBold}"
                        Foreground="#ff304351"
                        Margin="0 8 0 0"
                        FontWeight="Medium"/>
@@ -181,7 +179,7 @@
                      HorizontalAlignment="Left"/>
 
             <TextBlock Text="Date"
-                       FontFamily="Fonts/#Dosis"
+                       FontFamily="{StaticResource AnjomanExtraBold}"
                        Foreground="#ff304351"
                        Margin="0 8 0 0"
                        FontWeight="Medium"/>
@@ -199,7 +197,7 @@
 
 
             <TextBlock Text="Tree id"
-                       FontFamily="Fonts/#Dosis"
+                       FontFamily="{StaticResource AnjomanExtraBold}"
                        Foreground="#ff304351"
                        Margin="0 8 0 0"
                        FontWeight="Medium"/>

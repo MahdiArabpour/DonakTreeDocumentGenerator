@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "jEGHYVVxN2hX4XWSq0ZHxSsKTP62b+yPz2eYPcWzP7ihYpbolwExdoHtqm0NBTUkV3L0KL/nEJIB/MJiegIBkg==",
+  "dgSpecHash": "ZfP2qL06a/mE+bfGrMVoYHD+ii2HpgkCjf6KOkv1OTi0/W7Y7n3dXqIVPQNRSmQqFP2C4+M+gMPuvKKqBN1eLA==",
   "success": true,
-  "projectFilePath": "D:\\Programming Projects\\donak_project\\TreeDocumentGenerator\\TreeDocumentGenerator\\TreeDocumentGenerator.csproj",
+  "projectFilePath": "D:\\Programming Projects\\VisualStudioProjects\\DonakTreeDocumentGenerator\\DonakTreeDocumentGenerator\\TreeDocumentGenerator\\TreeDocumentGenerator.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Mahdi\\.nuget\\packages\\microsoft.netcore.platforms\\5.0.0\\microsoft.netcore.platforms.5.0.0.nupkg.sha512",
     "C:\\Users\\Mahdi\\.nuget\\packages\\microsoft.win32.systemevents\\5.0.0\\microsoft.win32.systemevents.5.0.0.nupkg.sha512",

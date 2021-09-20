@@ -134,7 +134,7 @@ namespace TreeDocumentGenerator
                 Bitmap(_templateImage.Width, _templateImage.Height);
             using (Graphics gr = Graphics.FromImage(img))
             {
-                gr.DrawImage(_plaqueImage, new System.Drawing.Point((_templateImage.Width / 2), 0));
+                gr.DrawImage(_plaqueImage, new System.Drawing.Point((_templateImage.Width / 2) + (_templateImage.Width / 28), (_templateImage.Height / 11)));
                 gr.DrawImage(_templateImage, new System.Drawing.Point(0, 0));
             }
             return img;
@@ -175,22 +175,64 @@ namespace TreeDocumentGenerator
                                  cropRect,
                                  GraphicsUnit.Pixel);
             }
-            return resizeImage(target, new System.Drawing.Size(540, 1080));
+            return resizeImage(target, new System.Drawing.Size(540 - (_templateImage.Width / 27), 1080 - (_templateImage.Height / 11)));
         }
-        private Bitmap DrawTextOnImage(string text, Bitmap templateImage, float textDistanceFromTop, float fontSize, Brush brush, float textDistanceFromLeft = 15, System.Drawing.FontStyle fontStyle = System.Drawing.FontStyle.Bold)
+
+        private Bitmap DrawTextOnImage(string text, Bitmap templateImage, float textDistanceFromTop, float fontSize, Brush brush, float textDistanceFromLeft = 12, AnjomanFontStyle fontStyle = AnjomanFontStyle.Bold, float boxHeight = 85)
         {
             using (Graphics g = Graphics.FromImage(templateImage))
             {
+                var myFonts = new System.Drawing.Text.PrivateFontCollection();
+                myFonts.AddFontFile("Fonts\\Anjoman-Black.ttf");
+                myFonts.AddFontFile("Fonts\\Anjoman-ExtraBold.ttf");
+                myFonts.AddFontFile("Fonts\\Anjoman-Bold.ttf");
+                myFonts.AddFontFile("Fonts\\Anjoman-SemiBold.ttf");
+                myFonts.AddFontFile("Fonts\\Anjoman-Medium.ttf");
+                myFonts.AddFontFile("Fonts\\Anjoman-Regular.ttf");
+                myFonts.AddFontFile("Fonts\\Anjoman-Light.ttf");
+
+                int fontIndex = 1;
+
+                switch (fontStyle)
+                {
+                    case AnjomanFontStyle.Black:
+                        fontIndex = 0;
+                        break;
+                    case AnjomanFontStyle.ExtraBold:
+                        fontIndex = 2;
+                        break;
+                    case AnjomanFontStyle.Bold:
+                        fontIndex = 1;
+                        break;
+                    case AnjomanFontStyle.SemiBold:
+                        fontIndex = 6;
+                        break;
+                    case AnjomanFontStyle.Regular:
+                        fontIndex = 5;
+                        break;
+                    case AnjomanFontStyle.Medium:
+                        fontIndex = 4;
+                        break;
+                    case AnjomanFontStyle.Light:
+                        fontIndex = 3;
+                        break;
+                    default:
+                        break;
+                }
+
+                var oFont = new System.Drawing.Font(
+                    myFonts.Families[fontIndex], 
+                    fontSize,
+                    System.Drawing.FontStyle.Bold);
+
+
                 g.DrawString(
                     text,
-                    new Font(
-                        "Fonts/Lalezar.ttf",
-                        fontSize,
-                        fontStyle),
+                    oFont,
                     brush, 
                     new RectangleF(
                         new PointF(textDistanceFromLeft, textDistanceFromTop),
-                        new SizeF(445, 85)
+                        new SizeF(448, boxHeight)
                         ),
                     new StringFormat(StringFormatFlags.DirectionRightToLeft)
                     );
@@ -199,29 +241,29 @@ namespace TreeDocumentGenerator
         }
         private Bitmap DrawNameonThePlaque(string nameOnThePlaque, Bitmap templateImage)
         {
-            return DrawTextOnImage(nameOnThePlaque, templateImage, 200, 50, Brushes.Purple);
+            return DrawTextOnImage(nameOnThePlaque, templateImage, 185, 40, new SolidBrush(Color.FromArgb(69,0,168)), 15, AnjomanFontStyle.Black, 160);
         }
 
         private Bitmap DrawCustomerName(string treeType, Bitmap templateImage)
         {
-            return DrawTextOnImage(treeType, templateImage, 560, 30, Brushes.Black);
+            return DrawTextOnImage(treeType, templateImage, 560, 23, Brushes.Black);
         }
 
         private Bitmap DrawTreeType(string treeType, Bitmap templateImage)
         {
-            return DrawTextOnImage(treeType, templateImage, 670, 30, Brushes.Black);
+            return DrawTextOnImage(treeType, templateImage, 670, 23, Brushes.Black);
         }
         private Bitmap DrawLocationString(string locationString, Bitmap templateImage)
         {
-            return DrawTextOnImage(locationString, templateImage, 785, 30, Brushes.Black);
+            return DrawTextOnImage(locationString, templateImage, 785, 23, Brushes.Black);
         }
         private Bitmap DrawDateString(string dateString, Bitmap templateImage)
         {
-            return DrawTextOnImage(dateString, templateImage, 905, 30, Brushes.Black);
+            return DrawTextOnImage(dateString, templateImage, 905, 23, Brushes.Black);
         }
         private Bitmap DrawTreeId(string treeType, Bitmap templateImage)
         {
-            return DrawTextOnImage(treeType, templateImage, 987, 24, Brushes.Black, 410);
+            return DrawTextOnImage(treeType, templateImage, 987, 18, Brushes.Black, 410, AnjomanFontStyle.SemiBold);
         }
 
 
@@ -250,5 +292,16 @@ namespace TreeDocumentGenerator
             NameOnThePlaque.Text = "";
             Date.Text = "";
         }
+    }
+
+    enum AnjomanFontStyle
+    {
+        Black,
+        ExtraBold,
+        Bold,
+        SemiBold,
+        Medium,
+        Regular,
+        Light,
     }
 }

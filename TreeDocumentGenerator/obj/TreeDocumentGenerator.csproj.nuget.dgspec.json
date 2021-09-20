@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Programming Projects\\donak_project\\TreeDocumentGenerator\\TreeDocumentGenerator\\TreeDocumentGenerator.csproj": {}
+    "D:\\Programming Projects\\VisualStudioProjects\\DonakTreeDocumentGenerator\\DonakTreeDocumentGenerator\\TreeDocumentGenerator\\TreeDocumentGenerator.csproj": {}
   },
   "projects": {
-    "D:\\Programming Projects\\donak_project\\TreeDocumentGenerator\\TreeDocumentGenerator\\TreeDocumentGenerator.csproj": {
+    "D:\\Programming Projects\\VisualStudioProjects\\DonakTreeDocumentGenerator\\DonakTreeDocumentGenerator\\TreeDocumentGenerator\\TreeDocumentGenerator.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Programming Projects\\donak_project\\TreeDocumentGenerator\\TreeDocumentGenerator\\TreeDocumentGenerator.csproj",
+        "projectUniqueName": "D:\\Programming Projects\\VisualStudioProjects\\DonakTreeDocumentGenerator\\DonakTreeDocumentGenerator\\TreeDocumentGenerator\\TreeDocumentGenerator.csproj",
         "projectName": "TreeDocumentGenerator",
-        "projectPath": "D:\\Programming Projects\\donak_project\\TreeDocumentGenerator\\TreeDocumentGenerator\\TreeDocumentGenerator.csproj",
+        "projectPath": "D:\\Programming Projects\\VisualStudioProjects\\DonakTreeDocumentGenerator\\DonakTreeDocumentGenerator\\TreeDocumentGenerator\\TreeDocumentGenerator.csproj",
         "packagesPath": "C:\\Users\\Mahdi\\.nuget\\packages\\",
-        "outputPath": "D:\\Programming Projects\\donak_project\\TreeDocumentGenerator\\TreeDocumentGenerator\\obj\\",
+        "outputPath": "D:\\Programming Projects\\VisualStudioProjects\\DonakTreeDocumentGenerator\\DonakTreeDocumentGenerator\\TreeDocumentGenerator\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Mahdi\\AppData\\Roaming\\NuGet\\NuGet.Config",

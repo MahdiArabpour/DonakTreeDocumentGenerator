@@ -1,0 +1,10 @@
+D:\Programming Projects\VisualStudioProjects\DonakTreeDocumentGenerator-main\TreeDocumentGenerator\bin\publish\TreeDocumentGenerator.exe
+D:\Programming Projects\VisualStudioProjects\DonakTreeDocumentGenerator-main\TreeDocumentGenerator\bin\publish\TreeDocumentGenerator.dll
+D:\Programming Projects\VisualStudioProjects\DonakTreeDocumentGenerator-main\TreeDocumentGenerator\bin\publish\TreeDocumentGenerator.deps.json
+D:\Programming Projects\VisualStudioProjects\DonakTreeDocumentGenerator-main\TreeDocumentGenerator\bin\publish\TreeDocumentGenerator.runtimeconfig.json
+D:\Programming Projects\VisualStudioProjects\DonakTreeDocumentGenerator-main\TreeDocumentGenerator\bin\publish\TreeDocumentGenerator.pdb
+D:\Programming Projects\VisualStudioProjects\DonakTreeDocumentGenerator-main\TreeDocumentGenerator\bin\publish\Microsoft.Win32.SystemEvents.dll
+D:\Programming Projects\VisualStudioProjects\DonakTreeDocumentGenerator-main\TreeDocumentGenerator\bin\publish\System.Drawing.Common.dll
+D:\Programming Projects\VisualStudioProjects\DonakTreeDocumentGenerator-main\TreeDocumentGenerator\bin\publish\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
+D:\Programming Projects\VisualStudioProjects\DonakTreeDocumentGenerator-main\TreeDocumentGenerator\bin\publish\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
+D:\Programming Projects\VisualStudioProjects\DonakTreeDocumentGenerator-main\TreeDocumentGenerator\bin\publish\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
