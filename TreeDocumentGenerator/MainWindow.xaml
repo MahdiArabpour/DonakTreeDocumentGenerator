@@ -283,7 +283,12 @@
 
             <Image Grid.Column="1" 
                    Source="Images/TreeDocument.png"
-                   Name="OutputImage"/>
+                   Name="OutputImage"
+                   MouseDown="Image_MouseDown"
+                   MouseMove="Image_MouseMove"
+                   MouseUp="Image_MouseUp"
+                   Cursor="SizeAll"
+                   MouseWheel="Image_MouseWheel"/>
         </Grid>
     </Grid>
 </Window>

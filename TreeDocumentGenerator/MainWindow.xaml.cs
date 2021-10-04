@@ -52,6 +52,14 @@ namespace TreeDocumentGenerator
             openFileDialog.Filter = "Image Files(*.jpg; *.jpeg; *.png)|*.jpg; *.jpeg; *.png";
             if (openFileDialog.ShowDialog() == true)
             {
+                if (openFileDialog.FileName != PlaqueImagePath.Text)
+                {
+                    _plaqueImageDx = 0;
+                    _plaqueImageDy = 0;
+                    _plaqueImageX = 0;
+                    _plaqueImageY = 0;
+                    _plaqueZoomRatio = 1;
+                }
                 PlaqueImagePath.Text = openFileDialog.FileName;
             }
         }
@@ -116,16 +124,22 @@ namespace TreeDocumentGenerator
 
             _documentImage = documentImage;
         }
+
         private void PlaqueImagePath_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
         {
             var plaqueImagePath = PlaqueImagePath.Text.Trim();
             if (File.Exists(plaqueImagePath))
             {
-                _plaqueImage = CropPlaqueImage(plaqueImagePath);
+                _plaqueImage = ResizePlaqueImage(plaqueImagePath);
             } else
             {
                 _plaqueImage = null;
             }
+            _plaqueImageDx = 0;
+            _plaqueImageDy = 0;
+            _plaqueImageX = 0;
+            _plaqueImageY = 0;
+            _plaqueZoomRatio = 1;
             MakeImage();
         }
         private Bitmap AddPlaqueImage()
@@ -134,7 +148,7 @@ namespace TreeDocumentGenerator
                 Bitmap(_templateImage.Width, _templateImage.Height);
             using (Graphics gr = Graphics.FromImage(img))
             {
-                gr.DrawImage(_plaqueImage, new System.Drawing.Point((_templateImage.Width / 2) + (_templateImage.Width / 28), (_templateImage.Height / 11)));
+                gr.DrawImage(_plaqueImage, new System.Drawing.Point(((_templateImage.Width / 2) - (_plaqueImage.Width - (_plaqueImage.Height / 2)) / 2) + _plaqueImageDx, _plaqueImageDy));
                 gr.DrawImage(_templateImage, new System.Drawing.Point(0, 0));
             }
             return img;
@@ -159,23 +173,30 @@ namespace TreeDocumentGenerator
         {
             return (new Bitmap(imgToResize, size));
         }
-        private Bitmap CropPlaqueImage(string plaqueImagePath)
+        private Bitmap ResizePlaqueImage(string plaqueImagePath)
         {
             Bitmap src = Image.FromFile(plaqueImagePath) as Bitmap;
 
-            var CropPosition = (src.Width - (src.Height / 2)) / 2;
+            //var CropPosition = (src.Width - (src.Height / 2)) / 2;
 
-            Rectangle cropRect = new Rectangle(CropPosition, 0, (src.Height / 2), src.Height);
+            //Rectangle cropRect = new Rectangle(CropPosition, 0, (src.Height / 2), src.Height);
 
-            Bitmap target = new Bitmap(cropRect.Width, cropRect.Height);
+            //Bitmap target = new Bitmap(cropRect.Width, cropRect.Height);
 
-            using (Graphics g = Graphics.FromImage(target))
-            {
-                g.DrawImage(src, new Rectangle(0, 0, target.Width, target.Height),
-                                 cropRect,
-                                 GraphicsUnit.Pixel);
-            }
-            return resizeImage(target, new System.Drawing.Size(540 - (_templateImage.Width / 27), 1080 - (_templateImage.Height / 11)));
+            //using (Graphics g = Graphics.FromImage(target))
+            //{
+            //    g.DrawImage(src, new Rectangle(0, 0, target.Width, target.Height),
+            //                     cropRect,
+            //                     GraphicsUnit.Pixel);
+            //}
+            //return resizeImage(target, new System.Drawing.Size(540 - (_templateImage.Width / 27), 1080 - (_templateImage.Height / 11)));
+
+            var srcRatio = (double) src.Width / src.Height;
+
+            int width = Convert.ToInt32(_templateImage.Height * srcRatio * _plaqueZoomRatio);
+            int height = Convert.ToInt32(_templateImage.Height * _plaqueZoomRatio);
+
+            return resizeImage(src, new System.Drawing.Size(width, height));
         }
 
         private Bitmap DrawTextOnImage(string text, Bitmap templateImage, float textDistanceFromTop, float fontSize, Brush brush, float textDistanceFromLeft = 12, AnjomanFontStyle fontStyle = AnjomanFontStyle.Bold, float boxHeight = 85, float boxWidth = 448)
@@ -272,9 +293,67 @@ namespace TreeDocumentGenerator
             PlaqueImagePath.Text = "";
             TreeType.Text = "";
             TreeId.Text = "";
+            CustomerName.Text = "";
             Location.Text = "";
             NameOnThePlaque.Text = "";
             Date.Text = "";
+            _plaqueImageDx = 0;
+            _plaqueImageDy = 0;
+            _plaqueImageX = 0;
+            _plaqueImageY = 0;
+            _plaqueZoomRatio = 1;
+        }
+
+        private System.Windows.Point _mouseLoc;
+
+        private void Image_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            _mouseLoc = e.GetPosition(sender as UIElement);
+        }
+
+        int _plaqueImageDx = 0;
+        int _plaqueImageDy = 0;
+        int _plaqueImageX = 0;
+        int _plaqueImageY = 0;
+
+        private void Image_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                var position = e.GetPosition(sender as UIElement);
+                _plaqueImageDx = Convert.ToInt32(position.X - _mouseLoc.X + _plaqueImageX);
+                _plaqueImageDy = Convert.ToInt32(position.Y - _mouseLoc.Y + _plaqueImageY);
+                MakeImage();
+            }
+        }
+
+        private void Image_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            _plaqueImageX = _plaqueImageDx;
+            _plaqueImageY = _plaqueImageDy;
+        }
+
+
+        double _plaqueZoomRatio = 1;
+        
+        private void Image_MouseWheel(object sender, MouseWheelEventArgs e)
+        {
+            if (e.Delta > 0) 
+            {
+                _plaqueZoomRatio *= 1.05;
+            }
+
+            else if (e.Delta < 0)
+            {
+                _plaqueZoomRatio *= 0.95;
+            }
+
+            var plaqueImagePath = PlaqueImagePath.Text.Trim();
+            if (File.Exists(plaqueImagePath))
+            {
+                _plaqueImage = ResizePlaqueImage(plaqueImagePath);
+            }
+            MakeImage();
         }
     }
 
